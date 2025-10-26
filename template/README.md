@@ -9,7 +9,7 @@ npx create-lambda-graphql-starter my-api
 
 ## Features
 
-- ✅ GraphQL with Apollo Server
+- ✅ GraphQL starter
 - ✅ AWS Lambda ready
 - ✅ Serverless Framework configured
 - ✅ Local development with serverless-offline
