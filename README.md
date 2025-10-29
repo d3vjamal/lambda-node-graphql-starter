@@ -1,6 +1,6 @@
-# Lambda Node GraphQL Starter
+# Create Lambda GraphQL App
 
-[![npm version](https://badge.fury.io/js/create-lambda-graphql-starter.svg)](https://badge.fury.io/js/create-lambda-graphql-starter)
+[![npm version](https://badge.fury.io/js/create-lambda-graphql-app.svg)](https://badge.fury.io/js/create-lambda-graphql-app)
 
 A CLI tool to quickly scaffold a new Node.js GraphQL project for AWS Lambda, using AWS SAM for deployment.
 
@@ -30,7 +30,7 @@ A CLI tool to quickly scaffold a new Node.js GraphQL project for AWS Lambda, usi
 To create a new project, run the following command:
 
 ```bash
-npx create-lambda-graphql-starter
+npx create-lambda-graphql-app my-app-name
 ```
 
 The CLI will prompt you for a project name and other details.
@@ -40,7 +40,7 @@ The CLI will prompt you for a project name and other details.
 Once the project is generated, navigate to the project directory:
 
 ```bash
-cd my-graphql-api
+cd my-app-name
 ```
 
 ### Install dependencies:
@@ -54,7 +54,7 @@ npm install
 To start the local development server, run:
 
 ```bash
-sam local start-api
+sam local my-app-name
 ```
 
 This will start a local API Gateway that you can use to test your GraphQL endpoint.
