@@ -1,9 +1,25 @@
 {
-  "name": "lambda-node-graphql-starter",
+  "name": "create-lambda-graphql-app",
   "version": "1.0.0",
-  "description": "CLI to scaffold AWS SAM + Node.js + GraphQL Lambda with your exact daily structure",
+  "description": "A CLI to create AWS Appsync-Sam-Lambda based GraphQL apps quickly",
   "bin": {
-    "lambda-node-graphql-starter": "./bin/cli.js"
+    "lambda-node-graphql-starter": "bin/cli.js"
+  },
+  "keywords": [
+    "aws",
+    "lambda",
+    "graphql",
+    "sam",
+    "serverless",
+    "cli"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/d3vjamal/lambda-node-graphql-starter.git"
+  },
+  "homepage": "https://github.com/d3vjamal/lambda-node-graphql-starter#readme",
+  "bugs": {
+    "url": "https://github.com/d3vjamal/lambda-node-graphql-starter/issues"
   },
   "type": "module",
   "scripts": {
