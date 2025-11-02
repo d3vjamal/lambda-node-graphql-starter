@@ -4,7 +4,7 @@
 
 A CLI tool to quickly scaffold a new Node.js GraphQL project for AWS Lambda, using AWS SAM for deployment.
 
-## Features
+## ✨ Features
 
 - **GraphQL Ready**: Starts you with a working GraphQL schema and resolver.
 - **AWS Lambda**: Pre-configured for deployment to AWS Lambda.
@@ -15,63 +15,138 @@ A CLI tool to quickly scaffold a new Node.js GraphQL project for AWS Lambda, usi
 - **VS Code Integration**: Includes a `launch.json` for easy debugging from VS Code.
 - **Interactive CLI**: An interactive CLI to customize your project setup.
 - **Organized Structure**: A clean and scalable project structure.
+- **Extensible**: Easily add new handlers with a single command.
+- **Modular Templates**: Internal templates for YAML and GraphQL schemas are now more modular and functional.
 
-## Tech Stack
+## 🧠 Tech Stack
 
 - **Runtime**: Node.js 20.x
 - **Framework**: None (vanilla Node.js)
 - **Deployment**: AWS SAM
 - **GraphQL**: `graphql` npm package
 - **Linting**: ESLint
-- **Testing**: (coming soon)
 
-## Quick Start
+## ⚙️ Installation
 
-To create a new project, run the following command:
-
-```bash
-npx create-lambda-graphql-app my-app-name
-```
-
-The CLI will prompt you for a project name and other details.
-
-## Usage
-
-Once the project is generated, navigate to the project directory:
+No global installation needed. Just run it via **npx**:
 
 ```bash
-cd my-app-name
+npx create-lambda-graphql-app
 ```
 
-### Install dependencies:
+---
+
+## 🚀 Usage
+
+### 🆕 Creating a New Project
+
+To create a new project, simply run:
 
 ```bash
-npm install
+npx create-lambda-graphql-app cool-project-name
 ```
 
-### Local Development
+The CLI will guide you through the setup process — asking for the project name, folder structure, and initial handler creation.
 
-To start the local development server, run:
+---
+
+## 📁 Project Structure
+
+Your generated project will look like this:
+
+```
+├── .vscode/
+│   └── launch.json
+├── local-test/
+│   └── your-handler/
+│       ├── local-test.json
+│       ├── local-test.mjs
+├── handlers/
+│   └── your-handler/
+│       ├── index.mjs
+│       ├── constants/
+│       ├── dal/
+│       ├── dao/
+│       ├── exceptions/
+│       ├── helpers/
+│       ├── transformers/
+│       └── validators/
+├── schema/
+│   └── schema.graphql
+├── mapping/
+│   └── request.vtl
+│   └── response.vtl
+├── template.yaml
+├── .env
+├── .npmignore
+├── .gitignore
+├── package.json
+└── ...
+```
+
+### Folder Breakdown
+- `handlers/`: Each folder is an independent Lambda function.
+- `schema/schema.graphql`: Your GraphQL schema definition.
+- `template.yaml`: The AWS SAM template that defines your Lambda functions and API.
+
+---
+
+## 🧩 Add a Handler to Existing Project
+
+You can add a new handler anytime without breaking your existing project.
 
 ```bash
-sam local my-app-name
+npx create-lambda-graphql-app add <handler-name>
 ```
 
-This will start a local API Gateway that you can use to test your GraphQL endpoint.
+This command will:
+1. Prompt for a handler name.
+2. Create all standard subfolders (constants, dao, helpers, etc.).
+3. Update `template.yaml` with the new function.
+4. Update the GraphQL schema with new mutations/queries.
 
-### Deployment
+---
 
-To deploy your application to AWS, run:
+## 🧰 Local Development
+
+To run locally:
+
+```bash
+sam build
+sam local start-api
+```
+
+
+---
+
+## ☁️ Deployment
+
+Deploy to AWS using the SAM CLI:
 
 ```bash
 sam build
 sam deploy --guided
 ```
 
-## Contributing
+You’ll be prompted for the stack name, AWS region, and other configuration details.
 
-Contributions are welcome! Please open an issue or submit a pull request.
+---
 
-## License
+## 🤝 Contributing
 
-This project is licensed under the MIT License.
+Contributions are welcome!  
+If you find a bug or want to suggest a feature, feel free to open an issue or submit a PR.
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License**.
+
+---
+
+### 💬 Author
+
+Developed with ❤️ by **Jamal**  
+GitHub: [@unsuredev](https://github.com/d3vjamal)  
+NPM: [create-lambda-graphql-app](https://www.npmjs.com/package/create-lambda-graphql-app)
