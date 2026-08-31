@@ -85,6 +85,7 @@ Your generated project will look like this:
 ```
 
 ### Folder Breakdown
+
 - `handlers/`: Each folder is an independent Lambda function.
 - `schema/schema.graphql`: Your GraphQL schema definition.
 - `template.yaml`: The AWS SAM template that defines your Lambda functions and API.
@@ -100,6 +101,7 @@ npx create-lambda-graphql-app add <handler-name>
 ```
 
 This command will:
+
 1. Prompt for a handler name.
 2. Create all standard subfolders (constants, dao, helpers, etc.).
 3. Update `template.yaml` with the new function.
@@ -115,7 +117,6 @@ To run locally:
 sam build
 sam local start-api
 ```
-
 
 ---
 
@@ -148,5 +149,5 @@ This project is licensed under the **MIT License**.
 ### 💬 Author
 
 Developed with ❤️ by **Jamal**  
-GitHub: [@unsuredev](https://github.com/d3vjamal)  
+GitHub: [@d3vjamal](https://github.com/d3vjamal)  
 NPM: [create-lambda-graphql-app](https://www.npmjs.com/package/create-lambda-graphql-app)
