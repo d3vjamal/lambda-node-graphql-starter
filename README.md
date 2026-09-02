@@ -12,6 +12,9 @@ A CLI tool to quickly scaffold a new Node.js GraphQL project for AWS Lambda, usi
 - **ES Modules**: Uses modern ES modules syntax.
 - **Local Development**: Test your Lambda functions locally with `sam local start-api`.
 - **Linting**: Comes with ESLint configured for code quality.
+- **Formatting**: Ships with a Prettier config (`.prettierrc.json`) and `format` / `format:check` scripts; all generated code is pre-formatted.
+- **Generated README**: Every scaffolded project gets its own `README.md` covering how to run, deploy, and change SAM parameters/config.
+- **SAM config**: Generates a `samconfig.toml` so `sam build` / `sam deploy` / `sam local start-api` work without extra flags.
 - **VS Code Integration**: Includes a `launch.json` for easy debugging from VS Code.
 - **Interactive CLI**: An interactive CLI to customize your project setup.
 - **Organized Structure**: A clean and scalable project structure.
@@ -66,18 +69,24 @@ Your generated project will look like this:
 │       ├── index.mjs
 │       ├── constants/
 │       ├── dal/
-│       ├── dao/
 │       ├── exceptions/
 │       ├── helpers/
 │       ├── transformers/
 │       └── validators/
+├── layers/common-dependency/
+├── scripts/
+│   └── deploy-assets.mjs
 ├── schema/
 │   └── schema.graphql
 ├── mapping/
-│   └── request.vtl
+│   ├── request.vtl
 │   └── response.vtl
 ├── template.yaml
+├── samconfig.toml
+├── README.md
 ├── .env
+├── .prettierrc.json
+├── .prettierignore
 ├── .npmignore
 ├── .gitignore
 ├── package.json
@@ -87,8 +96,13 @@ Your generated project will look like this:
 ### Folder Breakdown
 
 - `handlers/`: Each folder is an independent Lambda function.
+- `layers/common-dependency/`: Shared runtime deps packaged as a Lambda layer.
+- `scripts/deploy-assets.mjs`: Uploads the schema + VTL templates to S3 before `sam deploy`.
 - `schema/schema.graphql`: Your GraphQL schema definition.
+- `mapping/`: AppSync request/response VTL mapping templates.
 - `template.yaml`: The AWS SAM template that defines your Lambda functions and API.
+- `samconfig.toml`: SAM CLI configuration (stack name, region, parameter overrides).
+- `README.md`: Generated project docs — how to run, deploy, and change SAM props/config.
 
 ---
 
@@ -106,6 +120,18 @@ This command will:
 2. Create all standard subfolders (constants, dao, helpers, etc.).
 3. Update `template.yaml` with the new function.
 4. Update the GraphQL schema with new mutations/queries.
+
+---
+
+## 🎨 Formatting & Linting
+
+This repo and every generated project use Prettier and ESLint:
+
+```bash
+npm run format        # prettier --write
+npm run format:check  # verify formatting (use in CI)
+npm run lint          # eslint (generated projects only)
+```
 
 ---
 
