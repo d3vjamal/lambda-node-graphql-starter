@@ -32,7 +32,7 @@ program
   .command('add <handlerName>')
   .description('Add a new handler to an existing project')
   .action(async (handlerName) => {
-    const root = process.cwd();   // we are already inside the project folder
+    const root = process.cwd(); // we are already inside the project folder
     await addHandler(root, handlerName);
   });
 

@@ -32,7 +32,9 @@
   },
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier --write \"**/*.{js,mjs,json,md,yml,yaml}\"",
+    "format:check": "prettier --check \"**/*.{js,mjs,json,md,yml,yaml}\""
   },
   "author": "Jamaluddin Mondal",
   "license": "MIT",
@@ -42,5 +44,8 @@
     "dedent": "^1.7.0",
     "fs-extra": "^11.2.0",
     "inquirer": "^9.2.12"
+  },
+  "devDependencies": {
+    "prettier": "^3.9.6"
   }
 }
