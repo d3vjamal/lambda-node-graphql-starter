@@ -1,6 +1,6 @@
 {
   "name": "create-lambda-graphql-app",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "A CLI to create AWS Appsync-Sam-Lambda based GraphQL apps quickly",
   "bin": {
     "create-lambda-graphql-app": "bin/cli.js",
